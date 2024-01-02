@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Currency Shop</title>
+    <style>
+        /* Your styles go here */
+    <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 20px;
+        background: linear-gradient(45deg, #3498db, #2ecc71);
+        color: #fff;
+    }
+
+    header {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+
+    h1, h2 {
+        color: #fff;
+    }
+
+    section {
+        border: 1px solid #ccc;
+        background-color: gray;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+ 
+
+    button {
+        background-color: #e74c3c;
+        color: white;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #c0392b;
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        border-radius: 0 0 10px 10px;
+    }
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>Welcome to the Offcial MaiCoin Shop</h1>
+</header>
+
+<section id="products"></section>
+
+<footer>
+    <p>Total Cart Value: <span id="totalCartValue">0</span> MaiCoin</p>
+   
+<button onclick="checkout()">Checkout</button>
+</footer>
+
+<script>
+    const products = [
+        {
+            "name": "anything ticket",
+            "description": "a ticket that makes mai do whatever you want",
+            "price": 10000
+        },
+        {
+            "name": "toothbrush ticket",
+            "description": "brush mai's teeth for 1 min.",
+            "price": 50
+        },
+        {
+            "name": "mai's superb breakfast ",
+            "description": "mai makes you breakfast",
+            "price": 50
+        }
+    ];
+
+    const productsSection = document.getElementById('products');
+    const totalCartValue = document.getElementById('totalCartValue');
+
+    products.forEach(product => {
+        const productElement = document.createElement('div');
+        productElement.innerHTML = `
+            <h2>${product.name}</h2>
+            <p>Description: ${product.description}</p>
+            <p>Price: ${product.price} CustomCoins</p>
+            <button onclick="addToCart(${product.price})">Add to Cart</button>
+        `;
+        productsSection.appendChild(productElement);
+    });
+
+    let cartValue = 0;
+
+    function addToCart(price) {
+        cartValue += price;
+        totalCartValue.textContent = cartValue;
+    }
+</script>
+
+   </script><script>
+    // ... (existing code)
+
+    function addToCart(price) {
+        cartValue += price;
+        totalCartValue.textContent = cartValue;
+    }
+
+
+    function checkout() {
+
+        if (cartValue > 0) {
+            const confirmation = confirm(`Proceed to checkout? Total: ${cartValue} CustomCoins`);
+            if (confirmation) {
+                alert('Checkout successful! Thank you for your purchase.');
+                // Reset cart after successful checkout
+                cartValue = 0;
+                totalCartValue.textContent = cartValue;
+            }
+        } else {
+            alert('Your cart is empty. Add items before checking out.');
+        }
+    }
+</script>
+
+
+</body>
+</html>
