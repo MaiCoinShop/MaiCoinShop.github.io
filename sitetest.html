@@ -102,7 +102,7 @@
         productElement.innerHTML = `
             <h2>${product.name}</h2>
             <p>Description: ${product.description}</p>
-            <p>Price: ${product.price} CustomCoins</p>
+            <p>Price: ${product.price} MaiCoin</p>
             <button onclick="addToCart(${product.price})">Add to Cart</button>
         `;
         productsSection.appendChild(productElement);
@@ -128,7 +128,7 @@
     function checkout() {
 
         if (cartValue > 0) {
-            const confirmation = confirm(`Proceed to checkout? Total: ${cartValue} CustomCoins`);
+            const confirmation = confirm(`Proceed to checkout? Total: ${cartValue} MaiCoin`);
             if (confirmation) {
                 alert('Checkout successful! Thank you for your purchase.');
                 // Reset cart after successful checkout
